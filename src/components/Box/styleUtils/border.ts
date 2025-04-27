@@ -1,18 +1,18 @@
 import { CSSProperties } from "react";
-import { pipe, removeProps, setPropValueFromPriority } from "../../../utils";
+import { pipe, removeProps, setPropValueFromPriority } from "@/utils";
 
 export interface BorderProps {
-    border?: CSSProperties['border'];
-    borderTop?: CSSProperties['borderTop'];
-    borderRight?: CSSProperties['borderRight'];
+    border?      : CSSProperties['border'];
+    borderTop?   : CSSProperties['borderTop'];
+    borderRight? : CSSProperties['borderRight'];
     borderBottom?: CSSProperties['borderBottom'];
-    borderLeft?: CSSProperties['borderLeft'];
-    borderY?: CSSProperties['borderTop'];
-    borderX?: CSSProperties['borderRight'];
+    borderLeft?  : CSSProperties['borderLeft'];
+    borderY?     : CSSProperties['borderTop'];
+    borderX?     : CSSProperties['borderRight'];
     borderRadius?: CSSProperties['borderRadius'];
-    borderWidth?: CSSProperties['borderWidth'];
-    borderStyle?: CSSProperties['borderStyle'];
-    borderColor?: CSSProperties['borderColor'];
+    borderWidth? : CSSProperties['borderWidth'];
+    borderStyle? : CSSProperties['borderStyle'];
+    borderColor? : CSSProperties['borderColor'];
 }
 
 export const getBorder = (props: { style: BorderProps }) => {
@@ -21,7 +21,7 @@ export const getBorder = (props: { style: BorderProps }) => {
         setPropValueFromPriority('borderRight', ['borderRight', 'borderX']),
         setPropValueFromPriority('borderBottom', ['borderBottom', 'borderY']),
         setPropValueFromPriority('borderLeft', ['borderLeft', 'borderX']),
-    )({ ...props });
+    )({ ...props }) as any;
 
     const newProps = removeProps(['borderTop', 'borderRadius', 'borderRight', 'borderBottom', 'borderLeft', 'borderY', 'borderX'])(style);
 

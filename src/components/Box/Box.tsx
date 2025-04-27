@@ -1,4 +1,4 @@
-import { getMargin, getPadding, getSize,getLayout, getBorder, MarginProps, PaddingProps, SizeProps, BorderProps, LayoutProps } from "./utils";
+import { getMargin, getPadding, getSize,getLayout, getBorder, MarginProps, PaddingProps, SizeProps, BorderProps, LayoutProps } from "./styleUtils";
 import { CSSProperties, ElementType, EventHandler, FC, MouseEvent, PropsWithChildren } from "react"
 import { pipe } from "@/utils";
 
