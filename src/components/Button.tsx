@@ -1,14 +1,13 @@
-import { FC } from "react";
+import { ButtonHTMLAttributes, FC } from "react";
 
-interface ButtonProps {
-  label: string;
-  onClick: () => void;
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+
 }
 
-const Button: FC<ButtonProps> = ({ label, onClick }) => {
+const Button: FC<Props> = ({ children, ...props }) => {
   return (
-    <button onClick={onClick}>
-      {label}
+    <button {...props}>
+      {children}
     </button>
   );
 }

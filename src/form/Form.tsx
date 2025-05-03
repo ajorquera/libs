@@ -1,37 +1,29 @@
 import { FC, useActionState } from 'react';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
-
-
-interface Field {
-  name: string;
-  label: string;
-  type: 'text-field' | 'default';
-  options: any;
-}
+import { Field } from './types';
+import { formAction, getStateFromFields } from './helpers';
 
 export interface Props {
-  onSubmit: Promise<unknown>;
+  onSubmit: (...args: any[]) => Promise<unknown>;
   fields: Field[]
   loading?: boolean;
   error: string;
-  componentMap: Record<Field['type'], FC<{label: string}>>;
+  componentMap: Record<Field['type'], FC<{label?: string}>>;
 }
 
-const Form: FC<Props> = ({onSubmit, fields, componentMap}) => {
-  const [error, submitAction, isPending] = useActionState(
-    async (previousState, formData) => {
-      const error = await onSubmit(formData.get("name"));
-      if (error) {
-        return error;
-      }
 
-      return null;
-    },
-    null,
-  );
+const Form: FC<Props> = ({onSubmit, error: externalError, fields, componentMap}) => {
+  const [
+    validationErrors, 
+    action, 
+    loading
+  ] = useActionState<Record<string, any>, FormData>(formAction(onSubmit), getStateFromFields(fields, '') );
+  
+  const error = externalError || Object.values(validationErrors).pop();
+
   return (
-    <form action={{submitAction}}>
+    <form action={action}>
       
       {fields.map((field,i) => {
         const Component = componentMap[field.type] ?? componentMap['default'];
@@ -39,10 +31,10 @@ const Form: FC<Props> = ({onSubmit, fields, componentMap}) => {
         return <Component key={i} label={field.label} {...field.options} />;
       })}
 
-      {error && <Text color="error" >{error}</Text>}
+      {error && <Text>{error}</Text>}
 
-      <Button loading={isPending} fullWidth size="large" type="submit" variant="contained">
-        Login
+      <Button type="submit">
+        {loading ? 'Loading...' : 'Submit'}
       </Button>
     </form>
   );

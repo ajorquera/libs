@@ -17,7 +17,7 @@ const Box: FC<Props> = ({as, style, ...props}) => {
         getSize, 
         getBorder, 
         getLayout, 
-    )(props);
+    )(props) as any;
 
     const Component = as ?? 'div';
     return (
