@@ -34,10 +34,10 @@ function useAsync<U, T>(asyncFn: UseAsyncFunction<U, T>, {inmediate}: AsyncOpts 
     setLoading(true);
     setError(null);
     setData(null);
-      asyncFn(...args)
-        .then((res) => setData(res))
-        .catch((err) => setError(err))
-        .finally(() => setLoading(false));
+    asyncFn(...args)
+      .then((res) => setData(res))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
 
   }, [asyncFn]);
 
