@@ -11,7 +11,8 @@
     "build:components": "tsc -b && vite build -c ./viteconfigs/components.config.ts",
     "build:form": "tsc -b && vite build -c ./viteconfigs/form.config.ts",
     "build:hooks": "tsc -b && vite build -c ./viteconfigs/hooks.config.ts",
-    "build": "rm -r dist/ && yarn build:components && yarn build:form && yarn build:hooks",
+    "build:utils": "tsc -b && vite build -c ./viteconfigs/utils.config.ts",
+    "build": "rm -r dist/ && yarn build:components && yarn build:form && yarn build:hooks && yarn build:utils",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "yarn build"
