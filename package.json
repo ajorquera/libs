@@ -19,18 +19,18 @@
   "main": "./dist/components.umd.cjs",
   "module": "./dist/components.js",
   "exports": {
-    "/components": {
-      "types": "./dist/components.d.ts",
+    "./components": {
+      "types": "./dist/components/components.d.ts",
       "import": "./dist/components.js",
       "require": "./dist/components.umd.cjs"
     },
-    "/form": {
-      "types": "./dist/form.d.ts",
+    "./form": {
+      "types": "./dist/form/form.d.ts",
       "import": "./dist/form.js",
       "require": "./dist/form.umd.cjs"
     },
-    "/hooks": {
-      "types": "./dist/hooks.d.ts",
+    "./hooks": {
+      "types": "./dist/hooks/hooks.d.ts",
       "import": "./dist/hooks.js",
       "require": "./dist/hooks.umd.cjs"
     }
