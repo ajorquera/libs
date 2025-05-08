@@ -10,7 +10,8 @@
     "stories": "yarn ladle serve",
     "build:components": "tsc -b && vite build -c ./viteconfigs/components.config.ts",
     "build:form": "tsc -b && vite build -c ./viteconfigs/form.config.ts",
-    "build": "yarn build:components && yarn build:form",
+    "build:hooks": "tsc -b && vite build -c ./viteconfigs/hooks.config.ts",
+    "build": "yarn build:components && yarn build:form && yarn build:hooks",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "yarn build"
@@ -27,6 +28,11 @@
       "types": "./dist/form.d.ts",
       "import": "./dist/form.js",
       "require": "./dist/form.umd.cjs"
+    },
+    "/hooks": {
+      "types": "./dist/hooks.d.ts",
+      "import": "./dist/hooks.js",
+      "require": "./dist/hooks.umd.cjs"
     }
   },
   "peerDependencies": {
