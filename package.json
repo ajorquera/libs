@@ -5,30 +5,34 @@
   "type": "module",
   "types": "./dist/components.d.ts",
   "scripts": {
-    "dev": "vite",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "stories": "yarn ladle serve",
-    "build": "tsc -b && vite build",
+    "build:components": "tsc -b && vite build -c ./viteconfigs/components.config.ts",
+    "build:form": "tsc -b && vite build -c ./viteconfigs/form.config.ts",
+    "build": "yarn build:components && yarn build:form",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "yarn build"
   },
-  "files": [
-    "dist"
-  ],
   "main": "./dist/components.umd.cjs",
   "module": "./dist/components.js",
   "exports": {
-    ".": {
+    "/components": {
       "types": "./dist/components.d.ts",
       "import": "./dist/components.js",
       "require": "./dist/components.umd.cjs"
+    },
+    "/form": {
+      "types": "./dist/form.d.ts",
+      "import": "./dist/form.js",
+      "require": "./dist/form.umd.cjs"
     }
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "firebase": "^11.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -47,7 +51,8 @@
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
     "vitest": "^3.1.2",
-    "vitest-browser-react": "^0.1.1"
+    "vitest-browser-react": "^0.1.1",
+    "vite-plugin-dts": "^4.5.3"
   },
   "description": "React components that will help to build different projects",
   "repository": {
@@ -60,8 +65,5 @@
     "url": "https://github.com/ajorquera/components/issues"
   },
   "homepage": "https://github.com/ajorquera/components#readme",
-  "dependencies": {
-    "firebase": "^11.6.1",
-    "vite-plugin-dts": "^4.5.3"
-  }
+  "dependencies": {}
 }

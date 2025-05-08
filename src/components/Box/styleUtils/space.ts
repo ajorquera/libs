@@ -1,6 +1,7 @@
 import { pipe, setPropValueFromPriority, removeProps } from '@/utils';
-import { numbStr } from '@/interfaces';
 
+
+type numbStr = number | string;
 
 export interface MarginProps {
     margin?: numbStr;

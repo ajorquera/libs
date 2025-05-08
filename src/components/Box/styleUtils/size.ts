@@ -1,5 +1,7 @@
-import { numbStr } from '@/interfaces';
+
 import { pipe, removeProps, setPropValueFromPriority } from '@/utils';
+
+type numbStr = number | string;
 
 export interface SizeProps {
     width?: numbStr;
