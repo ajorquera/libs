@@ -6,7 +6,4 @@ export declare const removeUndefined: (obj: Record<string, string>) => Record<st
 export declare const removeProps: (keys: string[]) => (obj: Record<string, string>) => {
     [x: string]: string;
 };
-type unknowObj = Record<string, unknown>;
-export declare const mergeDeep: (target: unknowObj, ...sources: unknowObj[]) => unknowObj;
 export declare const checkEnvVars: (envVars: string[]) => void;
-export {};

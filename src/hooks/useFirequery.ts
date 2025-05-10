@@ -20,14 +20,14 @@ function useFirequery<T = Record<string, unknown>>(query: Query | DocumentRefere
                         if (snapshot.empty) {
                             setData([] as T);
                         } else {
-                            const docs = snapshot.docs.map((doc) => doc.data());
+                            const docs = snapshot.docs.map((doc: QueryDocumentSnapshot) => doc.data());
                             setData(docs as T);
                         }
                     }
     
                     setLoading(false);
                 },
-                (err) => {
+                (err: Error) => {
                     setError(err)
                     setLoading(false);
                 }

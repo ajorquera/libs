@@ -1,3 +1,3 @@
-export interface Objectt<T = unknown> {
+export interface TObj<T = unknown> {
     [key: string]: T;
 }
