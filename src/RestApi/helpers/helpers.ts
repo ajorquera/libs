@@ -1,4 +1,3 @@
-import { TObj } from "@/types";
 import { EndpointProps } from "../Endpoint/Endpoint";
 
 export const handleError = async (res: Response) => {
@@ -65,7 +64,7 @@ export const buildUrl = (
 
   if (!isEmptyObject(urlParams)) {
     const params = getUrlParamsNotUse(urlWithBase, urlParams);
-    const searchParams = new URLSearchParams(params as TObj<string>);
+    const searchParams = new URLSearchParams(params as Record<string, string>);
     urlObj.search = searchParams.toString();
   }
 

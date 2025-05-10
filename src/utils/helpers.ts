@@ -1,3 +1,5 @@
+import { Dict } from "@/types";
+
 /**
  *  Set the right property value according to the priority of it's other properties
  */
@@ -29,9 +31,16 @@ export const removeProps = (keys: string[]) => (obj: Record<string, string>) => 
     return copy;
 }
 
-export const checkEnvVars = (envVars: string[]) => {
-    const missingEnvVars = envVars.filter((envVar) => !process.env[envVar]);
+export const checkEnvVars = (envVars: string[], objToCheck: Dict<string>=process.env) => {
+    const missingEnvVars = envVars.filter((envVar) => !objToCheck[envVar]);
     if (missingEnvVars.length > 0) {
         throw new Error(`Missing environment variables: ${missingEnvVars.join(', ')}`);
     }
+}
+
+export const getStrTemplate = (templateStr: string, data: Dict<any>) => {
+  return templateStr.replace(/\$\{([^}]+)\}/g, (_, key: string) => {
+    const value = data[key.trim()];
+    return value !== undefined ? value : '';
+  });
 }
