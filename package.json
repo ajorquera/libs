@@ -43,8 +43,8 @@
     },
     "./RestApi": {
       "types": "./dist/RestApi/index.d.ts",
-      "import": "./dist/RestApi.js",
-      "require": "./dist/RestApi.umd.cjs"
+      "import": "./dist/restapi.js",
+      "require": "./dist/restapi.umd.cjs"
     }
   },
   "peerDependencies": {
