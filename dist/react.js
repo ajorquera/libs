@@ -2,7 +2,7 @@ var T = Object.defineProperty;
 var S = (n, t, e) => t in n ? T(n, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : n[t] = e;
 var x = (n, t, e) => S(n, typeof t != "symbol" ? t + "" : t, e);
 import { jsx as l, jsxs as v } from "react/jsx-runtime";
-import { useState as m, useRef as C, useEffect as w, useCallback as D, useActionState as E } from "react";
+import { useActionState as C, useState as m, useRef as D, useEffect as w, useCallback as E } from "react";
 import { onSnapshot as F, DocumentSnapshot as j, doc as h, where as P, query as y, Timestamp as q, setDoc as B, getDoc as A, getDocs as L, deleteDoc as H, writeBatch as O } from "firebase/firestore";
 function u(...n) {
   return (t) => n.reduce((e, o) => o(e), t);
@@ -12,20 +12,7 @@ const i = (n, t) => (e) => (t.forEach((o) => {
 }), e), b = (n) => (t) => {
   const e = { ...t };
   return n.forEach((o) => delete e[o]), e;
-};
-function K(n, { inmediate: t } = { inmediate: !1 }) {
-  const [e, o] = m(null), [r, s] = m(null), [g, d] = m(!1), c = C(!0);
-  w(() => () => {
-    c.current = !1;
-  }, []);
-  const a = D(async (...f) => {
-    c.current && (d(!0), s(null), o(null), n(...f).then((p) => o(p)).catch((p) => s(p)).finally(() => d(!1)));
-  }, [n]);
-  return w(() => {
-    t && a();
-  }, [t, a]), { data: e, error: r, loading: g, execute: a };
-}
-const W = (n) => {
+}, W = (n) => {
   const t = u(
     i("marginTop", ["marginTop", "mt", "my"]),
     i("marginRight", ["marginRight", "mr", "mx"]),
@@ -64,7 +51,7 @@ const W = (n) => {
     i("backgroundColor", ["backgroundColor", "bg"])
   )({ ...n });
   return { ...b(["backgroundColor", "bg"])(n), style: { ...t, ...n.style } };
-}, Q = ({ as: n, style: t, ...e }) => {
+}, K = ({ as: n, style: t, ...e }) => {
   const o = u(
     W,
     N,
@@ -88,12 +75,12 @@ const W = (n) => {
 ), U = (n) => async (t, e) => {
   const o = Object.fromEntries(e.entries());
   n(o);
-}, Z = ({ onSubmit: n, error: t, fields: e, componentMap: o }) => {
+}, Q = ({ onSubmit: n, error: t, fields: e, componentMap: o }) => {
   const [
     r,
     s,
     g
-  ] = E(U(n), J(e, "")), d = t || Object.values(r).pop();
+  ] = C(U(n), J(e, "")), d = t || Object.values(r).pop();
   return /* @__PURE__ */ v("form", { action: s, children: [
     e.map((c, a) => {
       const f = o[c.type] ?? o.default;
@@ -103,6 +90,18 @@ const W = (n) => {
     /* @__PURE__ */ l(z, { type: "submit", children: g ? "Loading..." : "Submit" })
   ] });
 };
+function Z(n, { inmediate: t } = { inmediate: !1 }) {
+  const [e, o] = m(null), [r, s] = m(null), [g, d] = m(!1), c = D(!0);
+  w(() => () => {
+    c.current = !1;
+  }, []);
+  const a = E(async (...f) => {
+    c.current && (d(!0), s(null), o(null), n(...f).then((p) => o(p)).catch((p) => s(p)).finally(() => d(!1)));
+  }, [n]);
+  return w(() => {
+    t && a();
+  }, [t, a]), { data: e, error: r, loading: g, execute: a };
+}
 function $(n, t = { disabled: !1 }) {
   const [e, o] = m(null), [r, s] = m(!1), [g, d] = m(null);
   return w(() => {
@@ -183,9 +182,9 @@ class tt {
   }
 }
 export {
-  Q as Box,
+  K as Box,
   tt as FireCrud,
-  Z as Form,
-  K as useAsync,
+  Q as Form,
+  Z as useAsync,
   $ as useFirequery
 };
