@@ -1,164 +1,191 @@
-var L = Object.defineProperty;
-var T = (o, t, e) => t in o ? L(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
-var w = (o, t, e) => T(o, typeof t != "symbol" ? t + "" : t, e);
-import { jsx as c, jsxs as v } from "react/jsx-runtime";
-import { useState as b, useRef as C, useEffect as R, useCallback as S, useActionState as E } from "react";
-import { doc as u, where as P, query as y, Timestamp as D, setDoc as x, getDoc as j, getDocs as B, deleteDoc as q, writeBatch as A } from "firebase/firestore";
-function d(...o) {
-  return (t) => o.reduce((e, n) => n(e), t);
+var T = Object.defineProperty;
+var S = (n, t, e) => t in n ? T(n, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : n[t] = e;
+var x = (n, t, e) => S(n, typeof t != "symbol" ? t + "" : t, e);
+import { jsx as l, jsxs as v } from "react/jsx-runtime";
+import { useState as m, useRef as C, useEffect as w, useCallback as D, useActionState as E } from "react";
+import { onSnapshot as F, DocumentSnapshot as j, doc as h, where as P, query as y, Timestamp as q, setDoc as B, getDoc as A, getDocs as L, deleteDoc as H, writeBatch as O } from "firebase/firestore";
+function u(...n) {
+  return (t) => n.reduce((e, o) => o(e), t);
 }
-const i = (o, t) => (e) => (t.forEach((n) => {
-  (e[o] ?? e[n]) !== void 0 && (e[o] = e[o] ?? e[n]);
-}), e), g = (o) => (t) => {
+const i = (n, t) => (e) => (t.forEach((o) => {
+  (e[n] ?? e[o]) !== void 0 && (e[n] = e[n] ?? e[o]);
+}), e), b = (n) => (t) => {
   const e = { ...t };
-  return o.forEach((n) => delete e[n]), e;
+  return n.forEach((o) => delete e[o]), e;
 };
-function I(o, { inmediate: t } = { inmediate: !1 }) {
-  const [e, n] = b(null), [r, s] = b(null), [h, l] = b(!1), a = C(!0);
-  R(() => () => {
-    a.current = !1;
+function K(n, { inmediate: t } = { inmediate: !1 }) {
+  const [e, o] = m(null), [r, s] = m(null), [g, d] = m(!1), c = C(!0);
+  w(() => () => {
+    c.current = !1;
   }, []);
-  const m = S(async (...f) => {
-    a.current && (l(!0), s(null), n(null), o(...f).then((p) => n(p)).catch((p) => s(p)).finally(() => l(!1)));
-  }, [o]);
-  return R(() => {
-    t && m();
-  }, [t, m]), { data: e, error: r, loading: h, execute: m };
+  const a = D(async (...f) => {
+    c.current && (d(!0), s(null), o(null), n(...f).then((p) => o(p)).catch((p) => s(p)).finally(() => d(!1)));
+  }, [n]);
+  return w(() => {
+    t && a();
+  }, [t, a]), { data: e, error: r, loading: g, execute: a };
 }
-const F = (o) => {
-  const t = d(
+const W = (n) => {
+  const t = u(
     i("marginTop", ["marginTop", "mt", "my"]),
     i("marginRight", ["marginRight", "mr", "mx"]),
     i("marginBottom", ["marginBottom", "mb", "my"]),
     i("marginLeft", ["marginLeft", "ml", "mx"]),
     i("margin", ["margin", "m"])
-  )({ ...o });
-  return { ...g(["marginTop", "marginRight", "marginBottom", "marginLeft", "margin", "mt", "mr", "mb", "ml", "my", "mx"])(o), style: { ...o.style, ...t } };
-}, H = (o) => {
-  const t = d(
+  )({ ...n });
+  return { ...b(["marginTop", "marginRight", "marginBottom", "marginLeft", "margin", "mt", "mr", "mb", "ml", "my", "mx"])(n), style: { ...n.style, ...t } };
+}, N = (n) => {
+  const t = u(
     i("paddingTop", ["paddingTop", "pt", "py"]),
     i("paddingRight", ["paddingRight", "pr", "px"]),
     i("paddingBottom", ["paddingBottom", "pb", "py"]),
     i("paddingLeft", ["paddingLeft", "pl", "px"]),
     i("padding", ["padding", "p"])
-  )({ ...o });
-  return { ...g(["paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "padding", "pt", "pr", "pb", "pl", "px", "py"])(o), style: { ...o.style, ...t } };
-}, W = (o) => {
-  const t = d(
+  )({ ...n });
+  return { ...b(["paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "padding", "pt", "pr", "pb", "pl", "px", "py"])(n), style: { ...n.style, ...t } };
+}, X = (n) => {
+  const t = u(
     i("width", ["width", "w"]),
     i("height", ["height", "h"]),
     i("minWidth", ["minWidth", "minW"]),
     i("minHeight", ["minHeight", "minH"])
-  )({ ...o });
-  return { ...g(["width", "height", "minWidth", "minHeight"])(o), style: { ...o.style, ...t } };
-}, O = (o) => {
-  const t = d(
+  )({ ...n });
+  return { ...b(["width", "height", "minWidth", "minHeight"])(n), style: { ...n.style, ...t } };
+}, Y = (n) => {
+  const t = u(
     i("borderTop", ["borderTop", "borderY"]),
     i("borderRight", ["borderRight", "borderX"]),
     i("borderBottom", ["borderBottom", "borderY"]),
     i("borderLeft", ["borderLeft", "borderX"])
-  )({ ...o });
-  return { ...g(["borderTop", "borderRadius", "borderRight", "borderBottom", "borderLeft", "borderY", "borderX"])(t), style: { ...o.style, ...t } };
-}, X = (o) => {
-  const t = d(
+  )({ ...n });
+  return { ...b(["borderTop", "borderRadius", "borderRight", "borderBottom", "borderLeft", "borderY", "borderX"])(t), style: { ...n.style, ...t } };
+}, k = (n) => {
+  const t = u(
     i("backgroundColor", ["backgroundColor", "bg"])
-  )({ ...o });
-  return { ...g(["backgroundColor", "bg"])(o), style: { ...t, ...o.style } };
-}, J = ({ as: o, style: t, ...e }) => {
-  const n = d(
-    F,
-    H,
+  )({ ...n });
+  return { ...b(["backgroundColor", "bg"])(n), style: { ...t, ...n.style } };
+}, Q = ({ as: n, style: t, ...e }) => {
+  const o = u(
     W,
-    O,
-    X
+    N,
+    X,
+    Y,
+    k
   )(e);
-  return /* @__PURE__ */ c(
-    o ?? "div",
+  return /* @__PURE__ */ l(
+    n ?? "div",
     {
-      ...n,
+      ...o,
       style: {
-        ...n.style,
+        ...o.style,
         ...t
       }
     }
   );
-}, Y = () => /* @__PURE__ */ c("span", { children: "Text" }), k = ({ children: o, ...t }) => /* @__PURE__ */ c("button", { ...t, children: o }), M = (o, t) => o.reduce(
-  (e, n) => (e[n.name] = t, e),
+}, M = () => /* @__PURE__ */ l("span", { children: "Text" }), z = ({ children: n, ...t }) => /* @__PURE__ */ l("button", { ...t, children: n }), J = (n, t) => n.reduce(
+  (e, o) => (e[o.name] = t, e),
   {}
-), N = (o) => async (t, e) => {
-  const n = Object.fromEntries(e.entries());
-  o(n);
-}, K = ({ onSubmit: o, error: t, fields: e, componentMap: n }) => {
+), U = (n) => async (t, e) => {
+  const o = Object.fromEntries(e.entries());
+  n(o);
+}, Z = ({ onSubmit: n, error: t, fields: e, componentMap: o }) => {
   const [
     r,
     s,
-    h
-  ] = E(N(o), M(e, "")), l = t || Object.values(r).pop();
+    g
+  ] = E(U(n), J(e, "")), d = t || Object.values(r).pop();
   return /* @__PURE__ */ v("form", { action: s, children: [
-    e.map((a, m) => {
-      const f = n[a.type] ?? n.default;
-      return /* @__PURE__ */ c(f, { label: a.label, ...a.options }, m);
+    e.map((c, a) => {
+      const f = o[c.type] ?? o.default;
+      return /* @__PURE__ */ l(f, { label: c.label, ...c.options }, a);
     }),
-    l && /* @__PURE__ */ c(Y, { children: l }),
-    /* @__PURE__ */ c(k, { type: "submit", children: h ? "Loading..." : "Submit" })
+    d && /* @__PURE__ */ l(M, { children: d }),
+    /* @__PURE__ */ l(z, { type: "submit", children: g ? "Loading..." : "Submit" })
   ] });
 };
-class Q {
+function $(n, t = { disabled: !1 }) {
+  const [e, o] = m(null), [r, s] = m(!1), [g, d] = m(null);
+  return w(() => {
+    if (!t.disabled) {
+      s(!0);
+      const c = F(
+        n,
+        (a) => {
+          if (a instanceof j)
+            a.exists() && o(null), o(a.data());
+          else if (a.empty)
+            o([]);
+          else {
+            const f = a.docs.map((R) => R.data());
+            o(f);
+          }
+          s(!1);
+        },
+        (a) => {
+          d(a), s(!1);
+        }
+      );
+      return () => c();
+    }
+  }, [JSON.stringify(n), t.disabled]), { data: e, loading: r, error: g };
+}
+class tt {
   constructor(t, e) {
-    w(this, "collectionName");
+    x(this, "collectionName");
     this.collectionRef = t, this.db = e, this.collectionName = this.collectionRef.path;
   }
   query(t) {
     return (...e) => {
-      let n;
+      let o;
       if (typeof e[0] == "string") {
         const [r] = e;
-        n = u(t, r);
+        o = h(t, r);
       } else if (e.some((r) => r.every(Boolean))) {
         const r = e.map((s) => P(...s));
-        n = y(t, ...r);
+        o = y(t, ...r);
       } else
-        n = y(t);
-      return n;
+        o = y(t);
+      return o;
     };
   }
   async create(t) {
-    const e = u(this.collectionRef), n = { ...t, id: e.id, createdAt: D.now() };
-    return await x(e, n), n;
+    const e = h(this.collectionRef), o = { ...t, id: e.id, createdAt: q.now() };
+    return await B(e, o), o;
   }
   async read(t) {
-    const e = u(this.collectionRef, t);
-    let n;
+    const e = h(this.collectionRef, t);
+    let o;
     if (t) {
-      const r = await j(e);
-      r.exists() && (n = r.data());
+      const r = await A(e);
+      r.exists() && (o = r.data());
     } else {
-      const r = await B(this.collectionRef);
-      r.empty || (n = r.docs.map((s) => s.data()));
+      const r = await L(this.collectionRef);
+      r.empty || (o = r.docs.map((s) => s.data()));
     }
-    return n;
+    return o;
   }
   async update(t, e) {
-    const n = u(this.collectionRef, t);
-    await x(n, e, { merge: !0 });
+    const o = h(this.collectionRef, t);
+    await B(o, e, { merge: !0 });
   }
   async delete(t) {
-    const e = u(this.collectionRef, t);
-    await q(e);
+    const e = h(this.collectionRef, t);
+    await H(e);
   }
   async deleteAll(...t) {
-    const e = t.map((r) => P(...r)), n = await B(y(this.collectionRef, ...e));
-    if (this.db || console.error("db is not available"), !n.empty && this.db) {
-      const r = A(this.db);
-      n.forEach((s) => {
+    const e = t.map((r) => P(...r)), o = await L(y(this.collectionRef, ...e));
+    if (this.db || console.error("db is not available"), !o.empty && this.db) {
+      const r = O(this.db);
+      o.forEach((s) => {
         r.delete(s.ref);
       }), await r.commit();
     }
   }
 }
 export {
-  J as Box,
-  Q as FireCrud,
-  K as Form,
-  I as useAsync
+  Q as Box,
+  tt as FireCrud,
+  Z as Form,
+  K as useAsync,
+  $ as useFirequery
 };
