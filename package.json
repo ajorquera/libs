@@ -8,12 +8,9 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "stories": "yarn ladle serve",
-    "build:components": "tsc -b && vite build -c ./viteconfigs/components.config.ts",
-    "build:form": "tsc -b && vite build -c ./viteconfigs/form.config.ts",
-    "build:hooks": "tsc -b && vite build -c ./viteconfigs/hooks.config.ts",
+    "build:react": "tsc -b && vite build -c ./viteconfigs/react.config.ts",
     "build:utils": "tsc -b && vite build -c ./viteconfigs/utils.config.ts",
-    "build:restapi": "tsc -b && vite build -c ./viteconfigs/restapi.config.ts",
-    "build": "yarn build:components && yarn build:form && yarn build:hooks && yarn build:utils && yarn build:restapi",
+    "build": "yarn build:react && yarn build:utils",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "yarn build"
@@ -21,30 +18,15 @@
   "main": "./dist/components.umd.cjs",
   "module": "./dist/components.js",
   "exports": {
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components.js",
-      "require": "./dist/components.umd.cjs"
-    },
-    "./form": {
-      "types": "./dist/form/index.d.ts",
-      "import": "./dist/form.js",
-      "require": "./dist/form.umd.cjs"
-    },
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks.js",
-      "require": "./dist/hooks.umd.cjs"
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react.js",
+      "require": "./dist/react.umd.cjs"
     },
     "./utils": {
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils.js",
       "require": "./dist/utils.umd.cjs"
-    },
-    "./RestApi": {
-      "types": "./dist/RestApi/index.d.ts",
-      "import": "./dist/restapi.js",
-      "require": "./dist/restapi.umd.cjs"
     }
   },
   "peerDependencies": {

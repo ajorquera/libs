@@ -9,6 +9,9 @@ export default ({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
+      '@react': resolve(__dirname, 'src/react'),
+      '@utils': resolve(__dirname, 'src/utils'),
+      '@types': resolve(__dirname, 'src/types'),
     },
   },
   build: {

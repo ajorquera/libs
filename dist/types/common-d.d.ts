@@ -1,6 +1,4 @@
-export interface TObj<T = unknown> {
-    [key: string]: T | undefined;
-}
-export type Dict<T = unknown> = {
-    [key: string]: T | undefined;
-};
+/**
+ * A dictionary type for Objects
+ */
+export type Dict<T = unknown> = Record<string, T | undefined>;
