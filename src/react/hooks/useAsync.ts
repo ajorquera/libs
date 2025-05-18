@@ -16,7 +16,7 @@ interface AsyncOpts {
 function useAsync<U, T>(asyncFn: UseAsyncFunction<U, T>, {inmediate}: AsyncOpts = {inmediate: false}): UseAsyncReturn<U, T> {
   const [data, setData] = useState<U | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(!!inmediate);
   const mountRef = useRef(true);
 
 

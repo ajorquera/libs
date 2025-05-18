@@ -91,7 +91,7 @@ const i = (n, t) => (e) => (t.forEach((o) => {
   ] });
 };
 function Z(n, { inmediate: t } = { inmediate: !1 }) {
-  const [e, o] = m(null), [r, s] = m(null), [g, d] = m(!1), c = D(!0);
+  const [e, o] = m(null), [r, s] = m(null), [g, d] = m(!!t), c = D(!0);
   w(() => () => {
     c.current = !1;
   }, []);
