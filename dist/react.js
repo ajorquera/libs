@@ -97,7 +97,7 @@ function Z(n, { inmediate: t } = { inmediate: !1 }) {
   }, []);
   const a = E(async (...f) => {
     c.current && (d(!0), s(null), o(null), n(...f).then((p) => o(p)).catch((p) => s(p)).finally(() => d(!1)));
-  }, [n]);
+  }, []);
   return w(() => {
     t && a();
   }, [t, a]), { data: e, error: r, loading: g, execute: a };

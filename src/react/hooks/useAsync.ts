@@ -39,7 +39,7 @@ function useAsync<U, T>(asyncFn: UseAsyncFunction<U, T>, {inmediate}: AsyncOpts 
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
 
-  }, [asyncFn]);
+  }, []);
 
   useEffect(() => {
     if (inmediate) {

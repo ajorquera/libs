@@ -8,4 +8,6 @@ export declare const removeProps: (keys: string[]) => (obj: Record<string, strin
     [x: string]: string;
 };
 export declare const checkEnvVars: (envVars: string[], objToCheck?: Dict<string>) => void;
-export declare const getStrTemplate: (templateStr: string, data: Dict<any>) => string;
+export declare const getStrTemplate: (templateStr: string, data: Dict<any>, opts?: {
+    replace: boolean;
+}) => string;

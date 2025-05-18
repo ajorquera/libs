@@ -38,9 +38,11 @@ export const checkEnvVars = (envVars: string[], objToCheck: Dict<string>=process
     }
 }
 
-export const getStrTemplate = (templateStr: string, data: Dict<any>) => {
+
+export const getStrTemplate = (templateStr: string, data: Dict<any>, opts={replace: true}) => {
   return templateStr.replace(/\$\{([^}]+)\}/g, (_, key: string) => {
-    const value = data[key.trim()];
-    return value !== undefined ? value : '';
+    const keyTrim = key.trim();
+    const value = data[keyTrim];
+    return value !== undefined ? value : (opts?.replace ? '' : `\${${keyTrim}}`);
   });
 }
