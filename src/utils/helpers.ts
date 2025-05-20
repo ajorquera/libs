@@ -46,3 +46,8 @@ export const getStrTemplate = (templateStr: string, data: Dict<any>, opts={repla
     return value !== undefined ? value : (opts?.replace ? '' : `\${${keyTrim}}`);
   });
 }
+
+export const capitalize = (str: string) => {
+  if (typeof str !== 'string') return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

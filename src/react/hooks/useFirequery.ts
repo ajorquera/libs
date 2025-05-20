@@ -5,7 +5,7 @@ interface UseFirequeryOptions {
 }
 function useFirequery<T = Record<string, unknown>>(query: Query | DocumentReference, opts: UseFirequeryOptions = {disabled: false}) {
     const [data, setData] = useState<T | null>(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(!opts.disabled);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {

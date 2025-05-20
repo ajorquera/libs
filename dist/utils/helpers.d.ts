@@ -11,3 +11,4 @@ export declare const checkEnvVars: (envVars: string[], objToCheck?: Dict<string>
 export declare const getStrTemplate: (templateStr: string, data: Dict<any>, opts?: {
     replace: boolean;
 }) => string;
+export declare const capitalize: (str: string) => string;

@@ -103,7 +103,7 @@ function Z(n, { inmediate: t } = { inmediate: !1 }) {
   }, [t, a]), { data: e, error: r, loading: g, execute: a };
 }
 function $(n, t = { disabled: !1 }) {
-  const [e, o] = m(null), [r, s] = m(!1), [g, d] = m(null);
+  const [e, o] = m(null), [r, s] = m(!t.disabled), [g, d] = m(null);
   return w(() => {
     if (!t.disabled) {
       s(!0);
