@@ -28,8 +28,8 @@ class FireCRUD<T = Record<string, unknown>> {
         }
     }
 
-    async create(data: Partial<T>): Promise<T> {
-        const docRef = doc(this.collectionRef);
+    async create(data: Partial<T>, pathSegments: string[]): Promise<T> {
+        const docRef = doc(this.collectionRef, ...(pathSegments ? pathSegments : []));
         const model = { ...data, id: docRef.id, createdAt: Timestamp.now() } as T;
         await setDoc(docRef, model as DocumentData);
         return model;

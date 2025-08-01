@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 
 interface UseAsyncReturn<T, U> {
   data: T | null;
@@ -27,7 +27,7 @@ function useAsync<U, T>(asyncFn: UseAsyncFunction<U, T>, {inmediate}: AsyncOpts 
   }, []);
 
 
-  const execute = useCallback(async (...args: T[]) => {
+  const execute = async (...args: T[]) => {
     const isMounted = mountRef.current;
     if (!isMounted) return;
 
@@ -39,13 +39,13 @@ function useAsync<U, T>(asyncFn: UseAsyncFunction<U, T>, {inmediate}: AsyncOpts 
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
 
-  }, []);
+  };
 
   useEffect(() => {
     if (inmediate) {
       execute();
     }
-  }, [inmediate, execute]);
+  }, [inmediate]);
 
   return { data, error, loading, execute };
 }

@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-export interface LayoutProps extends Pick<CSSProperties, 'display' | 'position'> {
+export interface LayoutProps extends Pick<CSSProperties, 'display' | 'position' | 'justifyContent' | 'alignItems' | 'flexDirection' | 'flexWrap' | 'alignContent'> {
     bg?: CSSProperties['background'];
 }
 export declare const getLayout: (props: {

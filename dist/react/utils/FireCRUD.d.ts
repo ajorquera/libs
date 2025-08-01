@@ -7,7 +7,7 @@ declare class FireCRUD<T = Record<string, unknown>> {
     collectionName: string;
     constructor(collectionRef: CollectionReference, db?: Firestore | undefined);
     query(collectionRef: CollectionReference): (...args: QueryArgs) => Query<DocumentData, DocumentData> | DocumentReference<DocumentData, DocumentData>;
-    create(data: Partial<T>): Promise<T>;
+    create(data: Partial<T>, pathSegments: string[]): Promise<T>;
     read(id: string): Promise<T | T[] | undefined>;
     update(id: string, data: Partial<T>): Promise<void>;
     delete(id: string): Promise<void>;

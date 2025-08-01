@@ -5,7 +5,7 @@ export interface Props {
     fields: Field[];
     loading?: boolean;
     error: string;
-    componentMap: Record<Field['type'], FC<{
+    componentMap: Record<Field["type"], FC<{
         label?: string;
     }>>;
 }

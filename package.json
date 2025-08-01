@@ -8,6 +8,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "stories": "yarn ladle serve",
+    
     "build:react": "tsc -b && vite build -c ./viteconfigs/react.config.ts",
     "build:utils": "tsc -b && vite build -c ./viteconfigs/utils.config.ts",
     "build": "yarn build:react && yarn build:utils",
@@ -23,6 +24,7 @@
       "import": "./dist/react.js",
       "require": "./dist/react.umd.cjs"
     },
+    "./*.css":  "./dist/*.css",
     "./utils": {
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils.js",
