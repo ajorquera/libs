@@ -9,7 +9,7 @@ import {
 import { useModalContext } from "../../ModalProvider";
 
 import styles from "./Base.module.css";
-import { Card, Box, Button, Text } from "@/react";
+import { Card, Box, Text } from "@/react";
 
 export interface Props extends PropsWithChildren {
   title?: ReactNode;
