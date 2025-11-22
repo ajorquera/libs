@@ -4,6 +4,10 @@
   "private": false,
   "description": "Different components and utils to be reused in multiple projects",
   "homepage": "https://github.com/ajorquera/libs",
+  "repository": {
+    "url": "https://github.com/ajorquera/libs",
+    "type": "git"
+  },
   "license": "ISC",
   "author": "Andres Jorquera",
   "type": "module",
