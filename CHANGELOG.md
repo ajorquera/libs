@@ -13,3 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Different builds for `react`, `styles` and `utils`
 - Publishing to npm public repository
 
+# [1.x.x] #- YYYY-MM-DD
+
+### Changed
+
+- Added provedence to npm publish
+- Updated package.json for more updated info
+
