@@ -1,23 +1,12 @@
 {
   "name": "@ajorquera/libs",
-  "private": false,
   "version": "1.0.1",
+  "private": false,
+  "description": "Different components and utils to be reused in multiple projects",
+  "homepage": "https://github.com/ajorquera/libs",
+  "license": "ISC",
+  "author": "Andres Jorquera",
   "type": "module",
-  "types": "./dist/components.d.ts",
-  "scripts": {
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "stories": "yarn ladle serve",
-    "build:react": "tsc -b && vite build -c ./viteconfigs/react.config.ts",
-    "build:utils": "tsc -b && vite build -c ./viteconfigs/utils.config.ts",
-    "build:styles": "tsc -b && vite build -c ./viteconfigs/styles.config.ts",
-    "build": "yarn build:react && yarn build:utils && yarn build:styles",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "prepare": "yarn build"
-  },
-  "main": "./dist/components.umd.cjs",
-  "module": "./dist/components.js",
   "exports": {
     "./react": {
       "types": "./dist/react/index.d.ts",
@@ -34,12 +23,21 @@
       "import": "./dist/styles.css"
     }
   },
-  "peerDependencies": {
-    "firebase": "^11.6.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+  "main": "./dist/components.umd.cjs",
+  "types": "./dist/components.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "stories": "yarn ladle serve",
+    "build:react": "tsc -b && vite build -c ./viteconfigs/react.config.ts",
+    "build:utils": "tsc -b && vite build -c ./viteconfigs/utils.config.ts",
+    "build:styles": "tsc -b && vite build -c ./viteconfigs/styles.config.ts",
+    "build": "yarn build:react && yarn build:utils && yarn build:styles",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prepare": "yarn build"
   },
-  "devDependencies": {
+   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@ladle/react": "^5.0.2",
     "@types/jest": "^29.5.14",
@@ -63,15 +61,9 @@
     "vitest": "^3.1.2",
     "vitest-browser-react": "^0.1.1"
   },
-  "description": "React components that will help to build different projects",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ajorquera/components.git"
-  },
-  "author": "Andres Jorquera",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ajorquera/components/issues"
-  },
-  "homepage": "https://github.com/ajorquera/components#readme"
+  "peerDependencies": {
+    "firebase": "^11.6.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
 }
