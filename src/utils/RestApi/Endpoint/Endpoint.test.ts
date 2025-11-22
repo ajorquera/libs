@@ -1,7 +1,8 @@
 import Endpoint from './Endpoint';
 import fetcher from '../helpers/fetcher';
+import { describe, expect, test, beforeEach, vi } from 'vitest';
 
-jest.mock('./fetcher');
+vi.mock('../helpers/fetcher');
 
 describe('Endpoint', () => {
   let endpoint: Endpoint;

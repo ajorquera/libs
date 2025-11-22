@@ -1,5 +1,6 @@
 import { EndpointProps } from '../Endpoint/Endpoint';
 import { handleError, handleJson, replaceUrlParams } from './helpers';
+import { describe, expect, test } from 'vitest';
 
 describe('handleError', () => {
   test('when res.ok is true', async () => {

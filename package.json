@@ -34,8 +34,7 @@
     "build:styles": "tsc -b && vite build -c ./viteconfigs/styles.config.ts",
     "build": "yarn build:react && yarn build:utils && yarn build:styles",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "prepare": "yarn build"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -50,10 +49,9 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "firebase": "^11.7.1",
     "globals": "^16.0.0",
-    "sass": "^1.94.2",
-    "jest": "^29.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sass": "^1.94.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",

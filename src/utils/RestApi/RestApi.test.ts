@@ -1,4 +1,5 @@
 import RestApi from './RestApi';
+import { describe, expect, test, beforeEach } from 'vitest';
 
 describe('RestApi', () => {
   let api: RestApi;
