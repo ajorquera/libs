@@ -1,11 +1,11 @@
 import {FC, HTMLAttributes, PropsWithChildren} from 'react';
 
 export interface Props extends PropsWithChildren, HTMLAttributes<HTMLAnchorElement> {
-    component: FC<PropsWithChildren>;
+    as: FC<PropsWithChildren> | string;
     native?: boolean;
 }
 
-const Link: FC<Props> = ({children, native, component:Component, ...props}) => {
+const Link: FC<Props> = ({children, native, as:Component, ...props}) => {
     const InnerComponent = (!Component || native) ? 'a' : Component || 'a';
 
     return (
