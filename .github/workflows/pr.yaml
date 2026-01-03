@@ -9,6 +9,6 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ajorquera/test-and-build-action@v1.1.0
+      - uses: ajorquera/test-and-build-action@v2
         with:
           skips-lint: true
