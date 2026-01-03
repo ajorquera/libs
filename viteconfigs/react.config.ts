@@ -16,7 +16,7 @@ export default defineConfig({
       external: ['react', 'react/jsx-runtime','firebase/firestore'],
       output: {
         globals: {
-          react: 'react',
+          react: 'React',
           'firebase/firestore': 'firebase/firestore',
           'react/jsx-runtime': 'react/jsx-runtime',
         },
