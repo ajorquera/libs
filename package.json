@@ -1,6 +1,6 @@
 {
   "name": "@ajorquera/libs",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": false,
   "description": "Different components and utils to be reused in multiple projects",
   "homepage": "https://github.com/ajorquera/libs",
