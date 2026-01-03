@@ -6,7 +6,7 @@ export interface Props extends PropsWithChildren, HTMLAttributes<HTMLAnchorEleme
 }
 
 const Link: FC<Props> = ({children, native, as:Component, ...props}) => {
-    const InnerComponent = (!Component || native) ? 'a' : Component || 'a';
+    const InnerComponent = native ? 'a' : (Component || 'a');
 
     return (
         <InnerComponent {...props}>
