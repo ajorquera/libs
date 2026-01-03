@@ -1,7 +1,7 @@
 import {FC, HTMLAttributes, PropsWithChildren} from 'react';
 
 export interface Props extends PropsWithChildren, HTMLAttributes<HTMLAnchorElement> {
-    as: FC<PropsWithChildren> | string;
+    as?: FC<PropsWithChildren> | string;
     native?: boolean;
 }
 
